@@ -1,0 +1,81 @@
+.items-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.item-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  height: 40px;
+  width:95%;
+  border-radius: 45px;
+  background-color: #FFCAC2;
+  border-radius: 45px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+ 
+  box-shadow: inset 5px 5px 8px #66514e, 
+            inset -5px -5px 8px #ffffff;
+
+           
+}
+
+.item{
+  width:100%;  
+}
+
+
+.MuiDialogTitle-root{
+  background-color: #BAD7DF;
+  color: #f6f6f6;
+}
+.MuiDialogContent-root{
+  display: flex;
+  flex-direction: column;
+  background-color: #BAD7DF;
+
+  P{
+    color: #f6f6f6;    
+  }
+
+  .divider{
+    background-color: #f6f6f6;
+    margin-bottom: 3px;
+  }
+  
+}
+
+#created-text{
+  font-size: 10px;
+}
+
+.MuiFormControl-root{
+  color: #f6f6f6;
+
+  & label{
+    color: #f6f6f6;
+  }
+  & .MuiInput-underline:before{
+    border-bottom-color: #f6f6f6;
+  }
+  & .MuiInput-underline:after{
+    border-bottom-color: #f6f6f6;
+  }
+
+  .MuiFormLabel-root.Mui-focused{
+    color: #f6f6f6;
+  }
+  }
+
+.MuiDialogActions-root{
+  background-color: #BAD7DF;
+  color: #f6f6f6;
+}
+.MuiList-root{
+  background-color: #BAD7DF;
+  color: #f6f6f6;
+}

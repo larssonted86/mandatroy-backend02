@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import './styles/css/App.css';
+import Boardwindow from './components/Boardwindow'
+import Listwindow from './components/Listwindow'
+import Itemwindow from './components/ItemWindow'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>        
+        <div className='content'>
+        <Route exact path="/">
+            <Boardwindow />
+          </Route>
+          <Route path="/api/lists/:bid">
+            <Listwindow />
+          </Route>
+          <Route path="/api/items/:lid">
+            <Itemwindow />
+          </Route>
+        </div>
+      </Router>
     </div>
   );
 }

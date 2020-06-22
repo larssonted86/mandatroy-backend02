@@ -1,0 +1,68 @@
+.listcomponent-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-width: 250px;
+  border-radius: 12px;
+  background: #BAD7DF;
+  box-shadow: 9px 9px 18px #82979c, -9px -9px 18px #f2ffff;
+}
+.listcomponent-wrapper .items-wrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #BAD7DF;
+}
+.listcomponent-wrapper .list-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+.listcomponent-wrapper .dialog-button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 45px;
+  background-color: #FFCAC2;
+  border: none;
+  margin-bottom: 5px;
+}
+.listcomponent-wrapper .dialog-button:hover {
+  background-color: #FFCAC2;
+  border-color: #f6f6f6;
+}
+.listcomponent-wrapper .dialog-button .expand-icon {
+  fill: #f6f6f6;
+}
+.listcomponent-wrapper .MuiFormControl-root {
+  background-color: #99DDCC;
+  border: none;
+}
+.listcomponent-wrapper .MuiFormControl-root label {
+  font-size: larger;
+}
+.listcomponent-wrapper .MuiFilledInput-root {
+  background-color: #99DDCC;
+}
+.listcomponent-wrapper .MuiFilledInput-underline:before {
+  border-bottom: 1px solid #f6f6f6;
+}
+.listcomponent-wrapper .MuiFilledInput-underline:after {
+  border-bottom: 1px solid #f6f6f6;
+}
+.listcomponent-wrapper .button-add-list {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  height: 56px;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+/*# sourceMappingURL=listcomponent.css.map */

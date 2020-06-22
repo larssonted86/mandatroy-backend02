@@ -1,0 +1,41 @@
+*{
+  margin:0;
+  box-sizing: border-box;
+  font-family: JetBrains;
+  color: #f6f6f6;
+}
+
+@font-face {
+  font-family: 'JetBrains';
+  src: local('JetBrains'), url(../fonts/JetBrainsMono-1.0.3/web/woff/JetBrainsMono-Medium.woff) format('woff');
+}
+
+.navIcon{
+  fill: #F6F6F6;
+  width: 50px;
+  height: 50px;
+}
+
+button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 45px;
+  border: none;
+  background-color: #99DDCC;
+}
+
+header{
+  height: 60px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #BAD7DF;
+  border-bottom: thin #F6F6F6 solid;
+  font-family: JetBrains;
+  color: #F6F6F6 ;
+
+}
