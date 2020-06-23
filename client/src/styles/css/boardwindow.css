@@ -6,14 +6,21 @@
   width: 100vw;
   height: 100vh;
 }
+.board-container #brandText {
+  font-family: "DancingScript";
+}
 .board-container .boards-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .board-container .boards-wrapper .board {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   width: 150px;
@@ -24,6 +31,10 @@
   background: #BAD7DF;
   box-shadow: 9px 9px 18px #82979c, -9px -9px 18px #f2ffff;
 }
+.board-container .boards-wrapper .board .board-delete-button {
+  border-radius: 12px;
+  width: 100%;
+}
 .board-container .boards-wrapper a {
   display: block;
   height: 100%;
@@ -33,6 +44,38 @@
   color: #F6F6F6;
   font-family: JetBrains;
   font-size: 24px;
+}
+.board-container .MuiButtonBase-root {
+  width: 50px;
+  height: 50px;
+  border-radius: 45px;
+  background-color: #99DDCC;
+  border: none;
+  margin-bottom: 5px;
+}
+.board-container .MuiButtonBase-root:hover {
+  background-color: #99DDCC;
+  border-color: #f6f6f6;
+}
+.board-container .MuiButtonBase-root .add-icon {
+  fill: #f6f6f6;
+}
+.board-container footer {
+  height: 85px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+.board-container footer button {
+  height: 70px;
+  width: 70px;
+}
+.board-container footer button .add-icon {
+  height: 60px;
+  width: 60px;
+  fill: #f6f6f6;
 }
 
 /*# sourceMappingURL=boardwindow.css.map */

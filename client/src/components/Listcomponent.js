@@ -7,12 +7,23 @@ import TextField from '@material-ui/core/TextField';
 
 
 
-export default function Listcomponent({list,setUpdate}) {
+export default function Listcomponent({list,update,setUpdate,setDeletedList}) {
   const lid = list._id;
+  const bid = list.boardId;
   const [items, setItems]=useState([])
   const [newItem, setNewItem]=useState('')
   const[deletedItem, setDeletedItem]=useState(null) 
-  
+
+  async function deleteList() {
+    try {
+      await axios.delete('/api/lists/'+list._id)
+      .then(()=>{
+        setDeletedList(list._id)
+      })
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 
     const onSubmit = (e) => {
@@ -20,7 +31,8 @@ export default function Listcomponent({list,setUpdate}) {
       async function updateList() {
         try {
           await axios.post('/api/items/'+lid,{
-            title: newItem
+            title: newItem,
+            boardId: bid,
           })
           .then((res) =>{
             setItems([...items, res.data.item]);          
@@ -43,31 +55,23 @@ export default function Listcomponent({list,setUpdate}) {
         }
       }
       getItems(lid)
-      
-    },[]);
+    },[lid,update]);
 
     if(deletedItem){
       setItems(items.filter(x => x._id !== deletedItem));
       setDeletedItem(null)
-    }   
+    }
 
-    //if(movedItem){
-    //  async function getItems(lid) {
-    //    try {
-    //      const res = await axios.get('/api/items/'+lid);
-    //      setItems(res.data);
-    //    } catch (error) {
-    //      console.error(error);
-    //    }
-    //  }
-    //  getItems(lid) 
-    //  setMovedItem(false)
-    //}
-
-      console.log('render',lid, items)
   return (
     <div className='listcomponent-wrapper'>
+      <div className='listcomponent-Header'>
       <h2>{list.title}</h2>
+      <button 
+      className='listcomponent-delete-button'
+      onClick={deleteList}>
+        X
+      </button>
+      </div>
       <div className='items-wrapper'> 
         {items.map((item, index) =>
         <Itemcomponent 
@@ -89,14 +93,9 @@ export default function Listcomponent({list,setUpdate}) {
           variant="filled" 
           className='list-input' 
         />
-        <button className='button-add-list' type='submit'
+        <button className='button-add-item' type='submit'
         onClick={onSubmit}><Send  className = 'navIcon'/></button>
       </form>      
     </div>
   )
 }
-
-//axios.post('/api/items/'+lid,{
-      //  title: item
-      //});
-      //setItem('')

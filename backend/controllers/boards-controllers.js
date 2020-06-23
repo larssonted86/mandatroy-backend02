@@ -1,5 +1,7 @@
 const HttpError = require('../models/http-error')
 const Board = require('../models/board')
+const List = require('../models/list')
+const Item = require('../models/item')
 
 
 const getBoards = async (req,res,next) => {
@@ -34,11 +36,8 @@ const getBoardById = async (req,res,next) => {
 const createBoard = async (req,res,next) => {
   const {title} = req.body;
   const createdBoard = new Board({
-    title: title,
-    lists: [],
-  })
-
-  
+    title: title
+  })  
   try{
     await createdBoard.save();
   }catch(err){
@@ -56,7 +55,10 @@ const deleteBoard = async (req,res,next) => {
   const boardId = req.params.bid
   let board;
   try{
-   board =  await Board.findByIdAndDelete(boardId)
+   board =  await Board.deleteMany({_id: boardId})
+   list =  await List.deleteMany({boardId: boardId})
+   item =  await Item.deleteMany({boardId: boardId})
+
   }catch(err){
     const error = new HttpError(
       'Failed to delete board, please try again',

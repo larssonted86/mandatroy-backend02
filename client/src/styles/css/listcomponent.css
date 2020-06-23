@@ -11,6 +11,17 @@
   background: #BAD7DF;
   box-shadow: 9px 9px 18px #82979c, -9px -9px 18px #f2ffff;
 }
+.listcomponent-wrapper .listcomponent-Header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.listcomponent-wrapper .listcomponent-delete-button {
+  margin-left: 20px;
+  background-color: transparent;
+  font-size: larger;
+}
 .listcomponent-wrapper .items-wrapper {
   margin-top: 10px;
   display: flex;
@@ -18,13 +29,7 @@
   width: 100%;
   background: #BAD7DF;
 }
-.listcomponent-wrapper .list-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 5px;
-}
-.listcomponent-wrapper .dialog-button {
+.listcomponent-wrapper .items-wrapper .dialog-button {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -33,30 +38,37 @@
   border: none;
   margin-bottom: 5px;
 }
-.listcomponent-wrapper .dialog-button:hover {
+.listcomponent-wrapper .items-wrapper .dialog-button:hover {
   background-color: #FFCAC2;
   border-color: #f6f6f6;
 }
-.listcomponent-wrapper .dialog-button .expand-icon {
+.listcomponent-wrapper .items-wrapper .dialog-button .expand-icon {
   fill: #f6f6f6;
 }
-.listcomponent-wrapper .MuiFormControl-root {
+.listcomponent-wrapper .items-wrapper .MuiFormControl-root {
   background-color: #99DDCC;
   border: none;
 }
-.listcomponent-wrapper .MuiFormControl-root label {
+.listcomponent-wrapper .items-wrapper .MuiFormControl-root label {
   font-size: larger;
 }
-.listcomponent-wrapper .MuiFilledInput-root {
+
+.list-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+.list-form .MuiFilledInput-root {
   background-color: #99DDCC;
 }
-.listcomponent-wrapper .MuiFilledInput-underline:before {
+.list-form .MuiFilledInput-underline:before {
   border-bottom: 1px solid #f6f6f6;
 }
-.listcomponent-wrapper .MuiFilledInput-underline:after {
+.list-form .MuiFilledInput-underline:after {
   border-bottom: 1px solid #f6f6f6;
 }
-.listcomponent-wrapper .button-add-list {
+.list-form .button-add-item {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 4px;

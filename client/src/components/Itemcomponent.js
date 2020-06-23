@@ -24,6 +24,7 @@ export default function Itemcomponent({item,setDeletedItem,setUpdate,}) {
   const iid = item._id;
   const {bid}=useParams();
   const [moveList, setMoveList]=useState('')
+  const [desc, setDesc]=useState(item.desc)
 
   async function getLists() {
     try {
@@ -38,9 +39,33 @@ export default function Itemcomponent({item,setDeletedItem,setUpdate,}) {
     setOpen(true);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault()      
+    async function updateDesc() {
+      try {
+        console.log(item._id)
+        let iid = item._id
+        await axios.patch('/api/items/update/'+iid,{
+          desc: {desc}
+        })
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    updateDesc()
+    setOpen(false)
+   };
+
+  async function handleSetDesc(e) {
+    try {
+      setDesc(e.target.value)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async function handleChange(e) {
     try {
-      console.log(iid)
       setMoveList(e.target.value)
       await axios.patch('/api/items/move/'+iid,{        
         listId:e.target.value
@@ -114,26 +139,28 @@ export default function Itemcomponent({item,setDeletedItem,setUpdate,}) {
     </DialogTitle>
     <DialogContent
       className='dialog-content'>
-    <DialogContentText>
-      {item.desc}      
-    </DialogContentText>
-    <Divider 
-      className='divider' 
-    />
+      <form
+      onSubmit={onSubmit}> 
+        <TextField
+        className='dialog-input'
+        autoFocus
+        margin="dense"
+        id="descritption"
+        label="Enter Descritption"
+        type="text"
+        multiline
+        fullWidth
+        onChange={handleSetDesc}
+        value={desc}
+      />
+    </form>
+    
       <p 
         id='created-text'
       >
         {item.created}
       </p>    
-    <TextField
-      className='dialog-input'
-      autoFocus
-      margin="dense"
-      id="descritption"
-      label="Enter Descritption"
-      type="text"
-      fullWidth
-    />
+    
     </DialogContent>
     <DialogActions 
       className='dialog-actions'
@@ -146,7 +173,8 @@ export default function Itemcomponent({item,setDeletedItem,setUpdate,}) {
       </Button>
       <Button
         className='dialog-inner-button'
-        onClick={handleClose} 
+        type='submit'
+        onClick={onSubmit}
         >
         Edit
       </Button>      

@@ -50,11 +50,12 @@ const getItemById = async (req,res,next) => {
 
 const createItem = async (req,res,next) => {
   const listId = req.params.lid
-  const {title, desc} = req.body;
+  const {title, desc, boardId} = req.body;
   const createdItem = new Item({
     title: title,
     desc: desc,
     listId: listId,
+    boardId: boardId,
     created: Date.now(),
   })
     
@@ -90,8 +91,23 @@ const MoveItem = async (req,res,next) => {
   const itemId = req.params.iid
   let item;
   try{
-    console.log(req.body)
    item =  await Item.findByIdAndUpdate(itemId, {listId: req.body.listId})
+  }catch(err){
+    const error = new HttpError(
+      'Failed to update item, please try again',
+      500
+    );
+    return next(error);
+  }
+  res.status(200).json({message: 'Updated Item'})
+};
+
+const UpdateItem = async (req,res,next) => {
+  const itemId = req.params.iid
+  let item;
+  console.log( req.body.desc)
+  try{
+   item =  await Item.findByIdAndUpdate(itemId, {desc: req.body.desc.desc})
   }catch(err){
     const error = new HttpError(
       'Failed to update item, please try again',
@@ -108,3 +124,4 @@ exports.getItemById = getItemById;
 exports.createItem = createItem;
 exports.deleteItem = deleteItem;
 exports.MoveItem = MoveItem;
+exports.UpdateItem = UpdateItem;

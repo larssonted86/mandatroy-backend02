@@ -17,4 +17,6 @@ router.delete('/items/:iid', itemsControllers.deleteItem)
 
 router.patch('/items/move/:iid', itemsControllers.MoveItem)
 
+router.patch('/items/update/:iid', itemsControllers.UpdateItem)
+
 module.exports = router;

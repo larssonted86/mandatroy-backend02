@@ -1,5 +1,6 @@
 const HttpError = require('../models/http-error')
 const List = require('../models/list')
+const Item = require('../models/item')
 
 const getLists = async (req,res,next) => {
   const lists = await List.find().exec()
@@ -75,7 +76,9 @@ const deleteList = async (req,res,next) => {
   const listId = req.params.lid
   let list;
   try{
-   list =  await List.findByIdAndDelete(listId)
+   list =  await List.deleteMany({_id: listId})
+   item =  await Item.deleteMany({listId: listId})
+
   }catch(err){
     const error = new HttpError(
       'Failed to delete list, please try again',

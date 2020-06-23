@@ -10,6 +10,11 @@
   src: local('JetBrains'), url(../fonts/JetBrainsMono-1.0.3/web/woff/JetBrainsMono-Medium.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'DancingScript';
+  src: local('DancingScript'), url(../fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf) format('truetype');
+}
+
 .navIcon{
   fill: #F6F6F6;
   width: 50px;

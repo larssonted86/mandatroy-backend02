@@ -6,6 +6,9 @@
   width: 100vw;
   height: 100vh;
 }
+.list-container #brandText {
+  font-family: "DancingScript";
+}
 .list-container .list-content {
   display: flex;
   justify-content: space-between;
@@ -13,6 +16,23 @@
   flex-grow: 1;
   width: 100%;
   padding: 15px;
+}
+.list-container footer {
+  height: 85px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+.list-container footer button {
+  height: 70px;
+  width: 70px;
+}
+.list-container footer button .add-icon {
+  height: 60px;
+  width: 60px;
+  fill: #f6f6f6;
 }
 
 /*# sourceMappingURL=listwindow.css.map */
